@@ -32,9 +32,9 @@
         "@mantine/form": "^7.17.3",
         "@mantine/hooks": "^7.17.3",
         "@mantine/modals": "^7.17.3",
-        "@tabler/icons-react": "3.31.0",
         "clsx": "^2.1.1",
         "mantine-datatable": "^7.17.1",
+        "phosphor-react": "^1.4.1",
         "zustand": "^5.0.3"
     }
 }

@@ -1,5 +1,5 @@
 import { AppShell, Group, useMantineColorScheme, Text } from "@mantine/core";
-import { IconUsers } from '@tabler/icons-react';
+import { Users } from 'phosphor-react';
 import useUserStore from "@/Hooks/useUserStore";
 import { router } from "@inertiajs/react";
 import styles from './Navbar.module.css';
@@ -7,7 +7,7 @@ import styles from './Navbar.module.css';
 const linkData = [
   {
     label: 'Users',
-    icon: IconUsers,
+    icon: Users,
     link: '/users',
     requiredPermissions: ['view users'],
   }

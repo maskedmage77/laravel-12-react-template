@@ -1,7 +1,7 @@
 import deleteConfirmationModal from '@/Components/Modals/deleteConfirmationModal';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { ActionIcon, Card, Group, Title } from '@mantine/core';
-import { IconEdit, IconTrash } from '@tabler/icons-react';
+import { PencilSimple, Trash } from 'phosphor-react';
 import { Head, router } from '@inertiajs/react';
 import { DataTable } from 'mantine-datatable';
 import { useEffect, useState } from 'react';
@@ -57,7 +57,7 @@ export default function Index({ auth, users }: PageProps<{ users: User[] }>) {
                     router.get(route('users.edit', user.id))
                   }}
                 >
-                  <IconEdit style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                  <PencilSimple style={{ width: '70%', height: '70%' }} weight="bold" />
                 </ActionIcon>
                 <ActionIcon
                   variant="filled"
@@ -71,7 +71,7 @@ export default function Index({ auth, users }: PageProps<{ users: User[] }>) {
                     })
                   }}
                 >
-                  <IconTrash style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                  <Trash style={{ width: '70%', height: '70%' }} weight="bold" />
                 </ActionIcon>
               </Group>
             )

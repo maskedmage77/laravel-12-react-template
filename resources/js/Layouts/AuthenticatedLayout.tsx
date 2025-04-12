@@ -1,6 +1,6 @@
 import { ActionIcon, AppShell, Burger, Group, Menu, rem, Text, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import { PropsWithChildren, ReactNode, useEffect } from 'react';
-import { IconLogout, IconUser } from '@tabler/icons-react';
+import { SignOut, User } from 'phosphor-react';
 import useUserStore from '@/Hooks/useUserStore';
 import { useDisclosure } from '@mantine/hooks';
 import { router } from '@inertiajs/react';
@@ -80,7 +80,7 @@ export default function Authenticated({ auth, children }: Props) {
 
               <Menu.Target>
                 <ActionIcon variant="outline" aria-label="Settings">
-                  <IconUser style={{ width: '70%', height: '70%' }} stroke={1.5} />
+                  <User style={{ width: '70%', height: '70%' }} weight="bold" />
                 </ActionIcon>
               </Menu.Target>
 
@@ -88,7 +88,7 @@ export default function Authenticated({ auth, children }: Props) {
 
                 <Menu.Item
                   leftSection={
-                    <IconUser style={{ width: rem(14), height: rem(14) }} />
+                    <User style={{ width: rem(14), height: rem(14) }} weight="bold" />
                   }
                   onClick={() => {
                     router.get(route('profile.edit'))
@@ -100,7 +100,7 @@ export default function Authenticated({ auth, children }: Props) {
                 <Menu.Item
                   color="red"
                   leftSection={
-                    <IconLogout style={{ width: rem(14), height: rem(14) }} />
+                    <SignOut style={{ width: rem(14), height: rem(14) }} weight="bold" />
                   }
                   onClick={() => {
                     router.post(route('logout'))
