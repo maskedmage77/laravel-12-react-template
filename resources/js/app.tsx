@@ -14,8 +14,6 @@ createInertiaApp({
   setup({ el, App, props }) {
     const root = createRoot(el);
 
-    let darkEnabled = true;
-
     const theme = createTheme({
       fontFamily: 'Jost, Helvetica sans-serif',
       primaryColor: 'green',
@@ -25,11 +23,9 @@ createInertiaApp({
       components: {
         Card: Card.extend({
           styles: {
-            root: { 
-              backgroundColor: darkEnabled 
-                ? 'var(--mantine-color-dark-7)' 
-                : 'var(--mantine-color-gray-1)'
-            }
+            root: {
+              backgroundColor: 'light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-7))',
+            },
           }
         })
       }
@@ -37,7 +33,7 @@ createInertiaApp({
 
     root.render(
       <MantineProvider
-        defaultColorScheme={darkEnabled ? 'dark' : 'light'}
+        defaultColorScheme="dark"
         theme={theme}
       >
         <ModalsProvider>
