@@ -8,36 +8,50 @@
 
 ### Development 
 
+#### Setup 
+
+1. Copy the .env.example to .env and set the following variables
+```
+DB_PASSWORD=
+DB_ROOT_PASSWORD=
+```
+
+2. Run the following command to start the development environment
 ```bash
 docker compose -f docker-compose.dev.yml up --build -d
 ```
 
-Shell into container
-
+3. Shell into container
 ```
 docker exec -it laravel-12-mantine-app sh
 ```
 
-Install node packages
+4. Install node packages
 ```
 npm install
 ```
 
-Generate Encryption Key
+5. Generate Encryption Key
 ```
 php artisan key:generate
 ```
 
-Run migrations
+6. Run migrations
 ```
 php artisan migrate
+```
+
+### Start the vite dev server
+
+Shell into the container
+```
+docker exec -it laravel-12-mantine-app sh
 ```
 
 Running vite dev server
 ```
 npm run dev
 ```
-
 
 ### Production
 
