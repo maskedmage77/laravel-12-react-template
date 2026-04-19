@@ -1,6 +1,6 @@
 import { ActionIcon, AppShell, Burger, Group, Menu, rem, Text, useMantineColorScheme, useMantineTheme } from '@mantine/core';
 import { PropsWithChildren, ReactNode, useEffect } from 'react';
-import { SignOut, User } from 'phosphor-react';
+import { Moon, SignOut, Sun, User } from 'phosphor-react';
 import useUserStore from '@/Hooks/useUserStore';
 import { useDisclosure } from '@mantine/hooks';
 import { router } from '@inertiajs/react';
@@ -15,7 +15,7 @@ interface Props extends PropsWithChildren {
 export default function Authenticated({ auth, children }: Props) {
 
   const [opened, { toggle }] = useDisclosure();
-  const colorScheme = useMantineColorScheme().colorScheme;
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
 
   useEffect(() => {
@@ -31,12 +31,19 @@ export default function Authenticated({ auth, children }: Props) {
         collapsed: { mobile: !opened },
       }}
       padding="md"
+      styles={{
+        main: {
+          backgroundColor: colorScheme === "dark"
+            ? 'var(--mantine-color-dark-8)'
+            : 'var(--mantine-color-gray-0)',
+        }
+      }}
     >
       <AppShell.Header
         style={{
-          backgroundColor: colorScheme === "dark" 
-          ? 'var(--mantine-color-dark-7)'
-          : 'var(--mantine-color-gray-1)'
+          backgroundColor: colorScheme === "dark"
+            ? 'var(--mantine-color-dark-7)'
+            : 'var(--mantine-color-gray-1)'
         }}
       >
 
@@ -44,7 +51,7 @@ export default function Authenticated({ auth, children }: Props) {
           height: '100%',
         }}>
 
-          {/* Right Group */}
+          {/* Left Group */}
           <Group>
 
             <Burger
@@ -69,14 +76,28 @@ export default function Authenticated({ auth, children }: Props) {
 
           </Group>
 
-          {/* Left Group */}
+          {/* Right Group */}
           <Group>
 
-            <Menu position="bottom-end">
+            <Text size='sm' c="dimmed" visibleFrom="sm">
+              {auth.user.email}
+            </Text>
 
-              <Text size='sm' c="dimmed" visibleFrom="sm">
-                {auth.user.email}
-              </Text>
+            <ActionIcon
+              variant="outline"
+              aria-label="Settings"
+              onClick={() => {
+                toggleColorScheme();
+              }}
+            >
+              {  colorScheme === "dark" ? (
+                <Sun style={{ width: '70%', height: '70%' }} weight="bold" />
+              ) : (
+                <Moon style={{ width: '70%', height: '70%' }} weight="bold" />
+              )}
+            </ActionIcon>
+
+            <Menu position="bottom-end">
 
               <Menu.Target>
                 <ActionIcon variant="outline" aria-label="Settings">
@@ -119,7 +140,7 @@ export default function Authenticated({ auth, children }: Props) {
 
       </AppShell.Header>
 
-      <Navbar/>
+      <Navbar />
 
       <AppShell.Main>
         {children}

@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 
 export default function Guest({ children }: PropsWithChildren) {
 
-  const colorScheme = useMantineColorScheme().colorScheme;
+  const { colorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
 
   return (

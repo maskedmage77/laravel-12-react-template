@@ -15,7 +15,7 @@ const linkData = [
 
 export default function Navbar() {
 
-  const colorScheme = useMantineColorScheme().colorScheme;
+  const { colorScheme } = useMantineColorScheme();
   const { permissions } = useUserStore();
 
   return (
