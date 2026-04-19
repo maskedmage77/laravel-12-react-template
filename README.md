@@ -41,7 +41,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
-### Start the vite dev server
+#### Start the vite dev server
 
 Shell into the container
 ```
