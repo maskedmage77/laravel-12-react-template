@@ -28,7 +28,7 @@ export default function Guest({ children }: PropsWithChildren) {
             c={theme.primaryColor}
             onClick={() => router.get('/')}
           >
-            Laravel 11 Mantine
+            Laravel 12 Mantine
           </Text>
           {children}
         </Stack>

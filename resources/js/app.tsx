@@ -9,7 +9,7 @@ import '../css/app.css';
 import './bootstrap';
 
 createInertiaApp({
-  title: (title) => `${title} - Laravel 11 Mantine`,
+  title: (title) => `${title} - Laravel 12 Mantine`,
   resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
   setup({ el, App, props }) {
     const root = createRoot(el);

@@ -64,7 +64,7 @@ export default function Authenticated({ auth, children }: Props) {
               fw={700}
               onClick={() => router.get('/')}
             >
-              Laravel 11 Mantine
+              Laravel 12 Mantine
             </Text>
 
           </Group>
